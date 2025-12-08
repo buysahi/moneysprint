@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Money Sprint Blog | Simple Ways to Earn, Save & Grow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Money Sprint Blog shares simple, practical ways to earn, save, and grow your money. Side hustles, online earning, and beginner-friendly finance tips." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #020617;
+      --card: #020617;
+      --card-elevated: #020617;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.16);
+      --accent-alt: #0ea5e9;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --border-soft: rgba(31, 41, 55, 0.85);
+      --shadow-soft: 0 24px 42px rgba(0, 0, 0, 0.7);
+      --radius-lg: 16px;
+      --radius-xl: 22px;
+      --radius-full: 999px;
+      --nav-h: 70px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at 0% 0%, #0b1120 0, #020617 50%, #000 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    button {
+      font-family: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Background glow */
+    .page-glow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .page-glow::before {
+      content: "";
+      position: absolute;
+      inset: -15%;
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.13), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(34, 197, 94, 0.13), transparent 55%),
+        radial-gradient(circle at 50% 120%, rgba(59, 130, 246, 0.15), transparent 55%);
+      opacity: 0.9;
+      filter: blur(1px);
+    }
+
+    /* Navbar */
+    header.navbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(22px);
+      background: linear-gradient(
+        to bottom,
+        rgba(2, 6, 23, 0.96),
+        rgba(2, 6, 23, 0.9),
+        rgba(2, 6, 23, 0.85),
+        transparent
+      );
+      border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+    }
+    .nav-inner {
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 20% 0, #a5f3fc, #22c55e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.95),
+        0 16px 30px rgba(34, 197, 94, 0.6);
+      color: #020617;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+    .brand-name {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+    }
+    .brand-tagline {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.3rem;
+      font-size: 0.9rem;
+    }
+    .nav-links a {
+      color: var(--muted);
+      padding: 0.25rem 0;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -4px;
+      height: 2px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(to right, var(--accent), var(--accent-alt));
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.18s ease-out;
+    }
+    .nav-links a:hover {
+      color: var(--text);
+    }
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .nav-pill {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.7rem 1.3rem;
+      border-radius: var(--radius-full);
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+      color: #020617;
+      box-shadow:
+        0 18px 40px rgba(34, 197, 94, 0.7),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        0 24px 48px rgba(34, 197, 94, 0.9),
+        0 0 0 1px rgba(15, 23, 42, 0.95);
+    }
+    .btn-outline {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--muted);
+      border: 1px solid rgba(55, 65, 81, 0.95);
+    }
+    .btn-outline:hover {
+      color: var(--text);
+      border-color: rgba(148, 163, 184, 0.9);
+    }
+    .btn-sm {
+      padding: 0.55rem 1rem;
+      font-size: 0.82rem;
+    }
+
+    .nav-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+    .nav-mobile {
+      display: none;
+      padding: 0 1.25rem 0.9rem;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+    }
+    .nav-mobile a {
+      display: block;
+      padding: 0.4rem 0;
+      font-size: 0.94rem;
+      color: var(--muted);
+    }
+    .nav-mobile a:hover {
+      color: var(--text);
+    }
+    .nav-mobile.open {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+      .nav-menu-toggle {
+        display: block;
+      }
+    }
+
+    /* Sections */
+    section {
+      padding: 3.5rem 0;
+    }
+    @media (min-width: 900px) {
+      section {
+        padding: 4.5rem 0;
+      }
+    }
+
+    .eyebrow {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .section-title {
+      font-size: 1.7rem;
+      letter-spacing: -0.035em;
+      margin-bottom: 0.6rem;
+    }
+    .section-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    /* Hero */
+    .hero {
+      padding-top: 2.7rem;
+    }
+    .hero-grid {
+      display: grid;
+      gap: 2.3rem;
+    }
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+        align-items: center;
+      }
+    }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-bottom: 0.9rem;
+    }
+    .hero-kicker span {
+      font-size: 0.85rem;
+    }
+    .hero-title {
+      font-size: 2.2rem;
+      line-height: 1.1;
+      letter-spacing: -0.045em;
+      margin-bottom: 0.7rem;
+    }
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 2.6rem;
+      }
+    }
+    .hero-title span {
+      background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 1.4rem;
+    }
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .hero-meta strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(30, 64, 175, 0.9);
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.2), transparent 55%),
+        radial-gradient(circle at 120% 0, rgba(34, 197, 94, 0.2), transparent 55%),
+        rgba(15, 23, 42, 0.98);
+      padding: 1.35rem 1.2rem;
+      box-shadow: var(--shadow-soft);
+    }
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .hero-pill {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(56, 189, 248, 0.9);
+      background: rgba(15, 23, 42, 0.95);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--muted);
+    }
+    .hero-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: var(--radius-full);
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    }
+    .hero-stats {
+      text-align: right;
+    }
+    .hero-stats-label {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.15rem;
+    }
+    .hero-stats-value {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .hero-stats-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-list {
+      list-style: none;
+      font-size: 0.87rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+    .hero-list li {
+      display: flex;
+      gap: 0.45rem;
+      margin-bottom: 0.4rem;
+    }
+    .hero-list span {
+      margin-top: 0.17rem;
+      width: 7px;
+      height: 7px;
+      border-radius: var(--radius-full);
+      background: var(--accent-soft);
+      border: 1px solid var(--accent);
+    }
+    .hero-footer-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(30, 64, 175, 0.7);
+      margin-top: 0.8rem;
+      padding-top: 0.6rem;
+    }
+
+    /* Posts grid */
+    .posts {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+    }
+    .posts-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+    .posts-actions {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      font-size: 0.82rem;
+    }
+    .filter-pill {
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+    .filter-pill.active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--text);
+    }
+
+    .posts-grid {
+      display: grid;
+      gap: 1.4rem;
+    }
+    @media (min-width: 768px) {
+      .posts-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .post-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      background: rgba(15, 23, 42, 0.96);
+      padding: 1rem 0.95rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.5);
+    }
+    .post-badge {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      color: var(--muted);
+      align-self: flex-start;
+    }
+    .post-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+    .post-excerpt {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+    .post-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+    .post-meta strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+    .post-link {
+      font-size: 0.8rem;
+      color: var(--accent-alt);
+      margin-top: 0.15rem;
+    }
+
+    /* Category sections */
+    .category-section {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+    }
+    .category-header {
+      margin-bottom: 1.4rem;
+    }
+    .category-title {
+      font-size: 1.15rem;
+      margin-bottom: 0.25rem;
+    }
+    .category-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .category-grid {
+      display: grid;
+      gap: 1.1rem;
+    }
+    @media (min-width: 768px) {
+      .category-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    /* Newsletter */
+    .newsletter {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding-bottom: 4rem;
+    }
+    .newsletter-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(34, 197, 94, 0.9);
+      background:
+        radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.26), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.26), transparent 60%),
+        rgba(15, 23, 42, 0.98);
+      padding: 1.7rem 1.4rem;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 1rem;
+    }
+    @media (min-width: 900px) {
+      .newsletter-card {
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+        align-items: center;
+      }
+    }
+    .newsletter-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.35rem;
+    }
+    .newsletter-text {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .newsletter-list {
+      margin-top: 0.55rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      list-style: none;
+    }
+    .newsletter-list li {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 0.25rem;
+    }
+    .newsletter-list span {
+      font-size: 0.85rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .newsletter-input-wrapper {
+      flex: 1 1 190px;
+      position: relative;
+    }
+    .newsletter-input {
+      width: 100%;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(15, 23, 42, 0.95);
+      background: rgba(15, 23, 42, 0.98);
+      padding: 0.75rem 0.9rem 0.75rem 2.4rem;
+      outline: none;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+    .newsletter-input::placeholder {
+      color: rgba(148, 163, 184, 0.9);
+    }
+    .newsletter-icon {
+      position: absolute;
+      left: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .newsletter-hint {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid rgba(15, 23, 42, 0.95);
+      padding: 1.3rem 0 1.6rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-links {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 620px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      .posts-grid,
+      .category-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-glow"></div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#top" class="brand">
+          <div class="brand-icon">₹</div>
+          <div class="brand-text">
+            <div class="brand-name">Money Sprint</div>
+            <div class="brand-tagline">Micro-Finance Blog</div>
+          </div>
+        </a>
+
+        <nav class="nav-links">
+          <a href="#posts">Articles</a>
+          <a href="#side-hustles">Side Hustles</a>
+          <a href="#online-earning">Online Earning</a>
+          <a href="#newsletter">Newsletter</a>
+        </nav>
+
+        <div class="nav-cta">
+          <div class="nav-pill">moneysprint.site</div>
+          <button class="btn btn-primary btn-sm" onclick="scrollToId('newsletter')">
+            Get weekly tips
+          </button>
+        </div>
+
+        <button class="nav-menu-toggle" aria-label="Toggle navigation" onclick="toggleMobileNav()">
+          ☰
+        </button>
+      </div>
+
+      <div id="nav-mobile" class="nav-mobile">
+        <a href="#posts" onclick="toggleMobileNav()">Articles</a>
+        <a href="#side-hustles" onclick="toggleMobileNav()">Side Hustles</a>
+        <a href="#online-earning" onclick="toggleMobileNav()">Online Earning</a>
+        <a href="#newsletter" onclick="toggleMobileNav()">Newsletter</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-kicker">
+              <span>⚡</span> Simple money tips for real people
+            </div>
+            <h1 class="hero-title">
+              The <span>Money Sprint Blog</span> for earning, saving & growing your money.
+            </h1>
+            <p class="hero-subtitle">
+              Beginner-friendly micro-finance guides, side hustle ideas and online earning tips.
+              No complicated jargon, just small actions you can take this week.
+            </p>
+            <div class="hero-cta-row">
+              <button class="btn btn-primary" onclick="scrollToId('posts')">
+                Read latest articles →
+              </button>
+              <button class="btn btn-outline btn-sm" onclick="scrollToId('newsletter')">
+                Join the Money Sprint Newsletter
+              </button>
+            </div>
+            <div class="hero-meta">
+              <div>
+                <strong>Made for beginners.</strong><br />
+                Students, 9–5 workers, freelancers & anyone starting from scratch.
+              </div>
+              <div>
+                <strong>Micro steps, real wins.</strong><br />
+                Small habits that add up to big changes over months, not overnight tricks.
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Money Sprint snapshot">
+            <div class="hero-card-header">
+              <div class="hero-pill">
+                <span class="hero-dot"></span>
+                Money Sprint Tracker
+              </div>
+              <div class="hero-stats">
+                <div class="hero-stats-label">Goal</div>
+                <div class="hero-stats-value">Grow ₹ → ₹₹₹</div>
+                <div class="hero-stats-sub">One small move at a time.</div>
+              </div>
+            </div>
+            <ul class="hero-list">
+              <li>
+                <span></span>
+                <p><strong>Side hustles:</strong> simple ideas to earn extra without quitting your job.</p>
+              </li>
+              <li>
+                <span></span>
+                <p><strong>Online earning:</strong> honest breakdowns of what actually works in 2025.</p>
+              </li>
+              <li>
+                <span></span>
+                <p><strong>Micro-finance:</strong> practical saving, budgeting and money mindset tips.</p>
+              </li>
+            </ul>
+            <p class="hero-footer-note">
+              Tip: Start by reading one article from each category, then join the newsletter to get
+              weekly “Money Sprint” tasks you can actually finish.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED POSTS -->
+    <section id="posts" class="posts">
+      <div class="container">
+        <div class="posts-header">
+          <div>
+            <div class="eyebrow">Latest from the blog</div>
+            <h2 class="section-title">Featured guides to start with.</h2>
+            <p class="section-desc">
+              Start with these beginner-friendly posts that show you how to earn your first money,
+              use your phone better and avoid simple money mistakes.
+            </p>
+          </div>
+          <div class="posts-actions">
+            <button class="filter-pill active" type="button">All</button>
+            <button class="filter-pill" type="button">Side hustles</button>
+            <button class="filter-pill" type="button">Online earning</button>
+            <button class="filter-pill" type="button">Saving &amp; budgeting</button>
+          </div>
+        </div>
+
+        <div class="posts-grid">
+          <!-- Post 1 -->
+          <article class="post-card">
+            <div class="post-badge">Side Hustles</div>
+            <h3 class="post-title">How to Make ₹500 Today (Beginner Friendly)</h3>
+            <p class="post-excerpt">
+              Simple, realistic ways to make your first ₹500 in under 24 hours using what you already
+              know and own — no scams, no trading.
+            </p>
+            <div class="post-meta">
+              <span><strong>5 min read</strong></span>
+              <span>Starter · Action steps included</span>
+            </div>
+            <a href="#" class="post-link">Read article →</a>
+          </article>
+
+          <!-- Post 2 -->
+          <article class="post-card">
+            <div class="post-badge">Online Earning</div>
+            <h3 class="post-title">Best AI Tools to Make Money in 2025</h3>
+            <p class="post-excerpt">
+              A simple breakdown of how to use AI tools to create content, do client work faster, and
+              build small digital products that can earn on the side.
+            </p>
+            <div class="post-meta">
+              <span><strong>7 min read</strong></span>
+              <span>AI · Tools & examples</span>
+            </div>
+            <a href="#" class="post-link">Read article →</a>
+          </article>
+
+          <!-- Post 3 -->
+          <article class="post-card">
+            <div class="post-badge">Saving &amp; Budgeting</div>
+            <h3 class="post-title">How to Save ₹10,000 a Month on a Low Income</h3>
+            <p class="post-excerpt">
+              Step-by-step micro-budgeting for people who don’t like spreadsheets. Learn how to
+              keep more of what you earn without feeling miserable.
+            </p>
+            <div class="post-meta">
+              <span><strong>6 min read</strong></span>
+              <span>Budget · Templates inside</span>
+            </div>
+            <a href="#" class="post-link">Read article →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIDE HUSTLES CATEGORY -->
+    <section id="side-hustles" class="category-section">
+      <div class="container">
+        <div class="category-header">
+          <div class="eyebrow">Category</div>
+          <h2 class="category-title">Side Hustles</h2>
+          <p class="category-desc">
+            Extra income ideas you can run after work or on weekends. No big investments, no fake promises.
+          </p>
+        </div>
+        <div class="category-grid">
+          <article class="post-card">
+            <div class="post-badge">Side Hustles</div>
+            <h3 class="post-title">10 Side Hustles That Actually Work in India</h3>
+            <p class="post-excerpt">
+              A practical list of side hustles that people are already using — including rough earning
+              ranges and how to get your first customer.
+            </p>
+            <div class="post-meta">
+              <span><strong>8 min read</strong></span>
+              <span>Ideas · India focused</span>
+            </div>
+            <a href="#" class="post-link">Read article →</a>
+          </article>
+
+          <article class="post-card">
+            <div class="post-badge">Side Hustles</div>
+            <h3 class="post-title">5 Easiest Digital Services You Can Sell</h3>
+            <p class="post-excerpt">
+              Not a designer or coder? No problem. These simple services only need basic tools and a
+              willingness to learn and talk to people.
+            </p>
+            <div class="post-meta">
+              <span><strong>6 min read</strong></span>
+              <span>Services · No advanced skills</span>
+            </div>
+            <a href="#" class="post-link">Read article →</a>
+          </article>
+
+          <article class="post-card">
+            <div class="post-badge">Side Hustles</div>
+            <h3 class="post-title">How Students Can Earn Money Without Ruining Study Time</h3>
+            <p class="post-excerpt">
+              Time-blocking, realistic expectations and side gigs that fit into a student schedule.
+            </p>
+            <div class="post-meta">
+              <span><strong>5 min read</strong></span>
+              <span>Students · Time-friendly</span>
+            </div>
+            <a href="#" class="post-link">Read article →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ONLINE EARNING CATEGORY -->
+    <section id="online-earning" class="category-section">
+      <div class="container">
+        <div class="category-header">
+          <div class="eyebrow">Category</div>
+          <h2 class="category-title">Online Earning</h2>
+          <p class="category-desc">
+            Use your phone, laptop and internet connection to create small but meaningful income streams.
+          </p>
+        </div>
+        <div class="category-grid">
+          <article class="post-card">
+            <div class="post-badge">Online Earning</div>
+            <h3 class="post-title">How to Make Money from Your Phone (Legit Ways)</h3>
+            <p class="post-excerpt">
+              From micro-tasks and content to services you can manage from WhatsApp — here’s what’s real
+              and what to avoid.
+            </p>
+            <div class="post-meta">
+              <span><strong>7 min read</strong></span>
+              <span>Phone · Beginner</span>
+            </div>
+            <a href="#" class="post-link">Read article →</a>
+          </article>
+
+          <article class="post-card">
+            <div class="post-badge">Online Earning</div>
+            <h3 class="post-title">How to Start Freelancing with Zero Experience</h3>
+            <p class="post-excerpt">
+              Learn how to package your existing skills, create a simple profile and send pitches that
+              don’t sound desperate or spammy.
+            </p>
+            <div class="post-meta">
+              <span><strong>9 min read</strong></span>
+              <span>Freelance · Step-by-step</span>
+            </div>
+            <a href="#" class="post-link">Read article →</a>
+          </article>
+
+          <article class="post-card">
+            <div class="post-badge">Online Earning</div>
+            <h3 class="post-title">How to Create Your First Digital Product</h3>
+            <p class="post-excerpt">
+              A simple guide to turning your notes, checklists or knowledge into something people can
+              buy and download.
+            </p>
+            <div class="post-meta">
+              <span><strong>8 min read</strong></span>
+              <span>Products · Starter guide</span>
+            </div>
+            <a href="#" class="post-link">Read article →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MONEY TOOLS CATEGORY -->
+    <section id="money-tools" class="category-section">
+      <div class="container">
+        <div class="category-header">
+          <div class="eyebrow">Category</div>
+          <h2 class="category-title">Money Tools & Apps</h2>
+          <p class="category-desc">
+            Apps and tools that help you budget, invest, earn rewards and run your side hustles more easily.
+          </p>
+        </div>
+        <div class="category-grid">
+          <article class="post-card">
+            <div class="post-badge">Money Tools</div>
+            <h3 class="post-title">Best Cashback & Rewards Apps in India</h3>
+            <p class="post-excerpt">
+              If you’re already spending, you might as well earn something back. A simple guide to the
+              apps worth trying and how to use them wisely.
+            </p>
+            <div class="post-meta">
+              <span><strong>6 min read</strong></span>
+              <span>Apps · Cashback</span>
+            </div>
+            <a href="#" class="post-link">Read article →</a>
+          </article>
+
+          <article class="post-card">
+            <div class="post-badge">Money Tools</div>
+            <h3 class="post-title">Best Budget & Expense Tracker Apps</h3>
+            <p class="post-excerpt">
+              You don’t need a complex spreadsheet. These apps make it easy to see where your money goes
+              in under 5 minutes a day.
+            </p>
+            <div class="post-meta">
+              <span><strong>5 min read</strong></span>
+              <span>Budgeting · Tools</span>
+            </div>
+            <a href="#" class="post-link">Read article →</a>
+          </article>
+
+          <article class="post-card">
+            <div class="post-badge">Money Tools</div>
+            <h3 class="post-title">Tools to Run Your Side Hustle Like a Mini Business</h3>
+            <p class="post-excerpt">
+              Invoices, payments, simple websites and client chats — here are tool suggestions that keep
+              everything organised without overwhelming you.
+            </p>
+            <div class="post-meta">
+              <span><strong>7 min read</strong></span>
+              <span>Side hustle · Systems</span>
+            </div>
+            <a href="#" class="post-link">Read article →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section id="newsletter" class="newsletter">
+      <div class="container">
+        <div class="newsletter-card">
+          <div>
+            <h2 class="newsletter-title">Join the Money Sprint Newsletter</h2>
+            <p class="newsletter-text">
+              One email each week with 3 tiny “money moves” you can make in under 30 minutes:
+              a way to earn more, save smarter and think better about money.
+            </p>
+            <ul class="newsletter-list">
+              <li><span>•</span> Made for beginners, not finance experts.</li>
+              <li><span>•</span> Action-focused: tasks you can actually finish.</li>
+              <li><span>•</span> No spam, no fake promises, no trading calls.</li>
+            </ul>
+          </div>
+          <div>
+            <!-- Replace this with your email provider form action -->
+            <form class="newsletter-form" onsubmit="handleFakeSubmit(event)">
+              <div class="newsletter-input-wrapper">
+                <span class="newsletter-icon">✉️</span>
+                <input
+                  type="email"
+                  required
+                  class="newsletter-input"
+                  placeholder="you@example.com"
+                  aria-label="Email address"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Get weekly money tips →
+              </button>
+            </form>
+            <div class="newsletter-hint">
+              You can unsubscribe anytime. This is just for people who want to treat their money a little
+              more seriously each week.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>© <span id="year"></span> Money Sprint Blog · moneysprint.site</div>
+        <div class="footer-links">
+          <a href="#top">Home</a>
+          <a href="#posts">Articles</a>
+          <a href="#newsletter">Newsletter</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function scrollToId(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const offset = 70;
+      const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+
+    function toggleMobileNav() {
+      const nav = document.getElementById("nav-mobile");
+      if (!nav) return;
+      nav.classList.toggle("open");
+    }
+
+    function handleFakeSubmit(e) {
+      e.preventDefault();
+      alert(
+        "This form is a placeholder. Connect it to Mailchimp, ConvertKit, Brevo, etc. to start collecting emails."
+      );
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
